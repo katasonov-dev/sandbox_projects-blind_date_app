@@ -1,0 +1,18 @@
+<h1>Group Details</h1>
+
+<p><strong>Group ID:</strong> <%= @group.id %></p>
+
+<h2>Employees:</h2>
+<ul>
+  <% @employees.each do |employee| %>
+    <li><%= employee.name %> (<%= employee.department.name %>)</li>
+  <% end %>
+</ul>
+
+<% if @group.leader %>
+  <h2>Group Leader:</h2>
+  <p><strong>Name:</strong> <%= @group.leader.name %></p>
+  <p><strong>Department:</strong> <%= @group.leader.department.name %></p>
+<% else %>
+  <p>No group leader assigned for this group.</p>
+<% end %>

@@ -11,10 +11,12 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "redis", "~> 4.0"
+gem 'will_paginate', '~> 4.0'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'faker'
 end
