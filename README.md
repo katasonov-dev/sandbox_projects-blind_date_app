@@ -1,24 +1,12 @@
-# README
+# Blind dates application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is dockerized so you may want to use docker to launch it:
 
-Things you may want to cover:
+* Steps:
+1. `docker-compose build` to build docker images
+2. `docker-compose up` to start services
 
-* Ruby version
+Run migrations and seed db:
+`docker-compose run web rake db:migrate && rake db:seed`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All done, you may browse the app by this address: http://0.0.0.0:3000
