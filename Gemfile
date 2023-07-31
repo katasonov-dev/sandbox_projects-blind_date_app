@@ -12,6 +12,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "redis", "~> 4.0"
 gem 'will_paginate', '~> 4.0'
+gem 'devise'
 
 group :development, :test do
   gem 'pry'
