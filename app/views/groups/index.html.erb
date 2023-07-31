@@ -1,19 +1,25 @@
 <h1>Groups for Week <%= @week_number %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Group ID</th>
-      <th>Group Leader</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @groups.each do |group| %>
+<% if @groups.present?  %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to(group.id, group_path(group.id)) %></td>
+        <th>Group ID</th>
+        <th>Group Leader</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to(group.id, group_path(group.id)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= will_paginate @groups %>
+  <%= will_paginate @groups %>
+
+<% else %>
+  <strong>No groups formed for week <%= @week_number %></strong>
+  
+<% end %>

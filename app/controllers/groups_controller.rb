@@ -2,9 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_week
 
   def index
-    @groups = Group.where(
-      week_number: @week_number, created_at: Time.current.beginning_of_year..Time.current.end_of_year
-    ).page(params[:page])
+    @groups = Group.for_week(@week_number).page(params[:page])
   end
 
   def show
