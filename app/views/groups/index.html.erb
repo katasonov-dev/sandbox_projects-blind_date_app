@@ -1,5 +1,9 @@
 <h1>Groups for Week <%= @week_number %></h1>
 
+<% if user_signed_in? %>
+  <strong> Your group ID: <%= link_to(current_user.group_id, group_path(current_user.group_id)) %></strong>
+<% end %>
+
 <% if @groups.present?  %>
   <table>
     <thead>

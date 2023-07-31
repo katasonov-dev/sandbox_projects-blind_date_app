@@ -1,0 +1,30 @@
+<h1>List of Users</h1>
+
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Group</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to(user.name, edit_user_path(user)) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.department.name %></td>
+        <td><%= user.group ? link_to(user.group_id, group_path(user.group_id)) : 'N/A' %></td>
+        <td><%= user.role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

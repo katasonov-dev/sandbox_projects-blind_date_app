@@ -1,0 +1,18 @@
+<div>
+  <%= form.label :department_id %>
+  <%= form.collection_select :department_id, Department.all, :id, :name %>
+</div>
+
+<div>
+  <%= form.label :group_id %>
+  <%= form.collection_select :group_id, Group.all, :id, :id, include_blank: true %>
+</div>
+
+<div>
+  <%= form.label :role %>
+  <%= form.select :role, User.roles.keys %>
+</div>
+
+<div>
+  <%= form.submit 'Update User' %>
+</div>

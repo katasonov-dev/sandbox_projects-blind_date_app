@@ -2,6 +2,21 @@
 
 <p><strong>Group ID:</strong> <%= @group.id %></p>
 
+<p>Selected Restaurant: <%= @group.restaurant ? @group.restaurant.name : 'None' %></p>
+
+<% if user_signed_in? && @group.leader_id == current_user.id %>
+  <%= form_with(url: select_restaurant_path(@group), method: :post) do |form| %>
+    <div>
+      <%= form.label :restaurant_id, 'Select Restaurant' %>
+      <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name, include_blank: true %>
+    </div>
+
+    <div>
+      <%= form.submit 'Select Restaurant', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>
+
 <h2>Employees:</h2>
 <ul>
   <% @employees.each do |employee| %>

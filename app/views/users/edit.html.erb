@@ -1,0 +1,11 @@
+<h1>Edit User</h1>
+
+<% if user_signed_in? && current_user.admin? %>
+  <%= form_with(model: @user, url: user_path(@user), method: :patch) do |form| %>
+    <%= render partial: 'form', locals: { form: form } %>
+  <% end %>
+<% else %>
+  <strong>You don't have permission to edit users.</strong>
+<% end %>
+
+<%= link_to 'Back to Users', users_path %>
