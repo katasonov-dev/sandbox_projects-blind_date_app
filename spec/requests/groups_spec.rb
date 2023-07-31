@@ -37,7 +37,7 @@ RSpec.describe "Groups", type: :request do
     end
 
     it 'assigns @employees' do
-      expect(assigns(:employees)).to match_array(group.employees)
+      expect(assigns(:employees)).to match_array(group.users)
     end
   end
 end

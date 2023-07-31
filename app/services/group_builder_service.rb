@@ -14,7 +14,7 @@ class GroupBuilderService
       groups_by_leader = assign_group_leaders(grouped_employees)
 
       groups_by_leader.each do |leader_id, employees|
-        Group.create!(week_number: week_number, employees: employees, leader_id: leader_id)
+        Group.create!(week_number: week_number, users: employees, leader_id: leader_id)
       end
     end
 
@@ -28,7 +28,7 @@ class GroupBuilderService
   private
 
   def create_groups_for_week
-    groups_by_department = Employee.includes(:department).group_by(&:department)
+    groups_by_department = User.includes(:department).group_by(&:department)
     groups = randomize_groups(groups_by_department)
 
     divide_to_groups(groups)

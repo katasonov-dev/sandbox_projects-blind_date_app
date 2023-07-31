@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @employees = @group.employees
+    @employees = @group.users
   end
 
   def build_groups
