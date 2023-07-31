@@ -69,12 +69,9 @@ class GroupBuilderService
     groups_by_leader = {}
     groups.each_with_index do |group|
       leader = group.select { |employee| employee.eligible_to_lead? }.first
+      leader = group.shuffle.first unless leader
 
-      unless leader
-        leader = group.shuffle.first
-      end
       leader.update!(group_leader_at: current_date)
-
       groups_by_leader[leader.id] = group
     end
     groups_by_leader
