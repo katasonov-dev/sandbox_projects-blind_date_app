@@ -10,6 +10,18 @@ class GroupsController < ApplicationController
     @employees = @group.employees
   end
 
+  def build_groups
+    success_result = GroupBuilderService.new(@week_number).execute
+
+    if success_result
+      flash[:notice] = 'Groups successfully built!'
+    else
+      flash[:alert] = 'Failed to build groups. Please try again.'
+    end
+
+    redirect_to groups_path
+  end
+
   private
 
   def set_week

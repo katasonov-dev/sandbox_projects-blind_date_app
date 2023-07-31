@@ -3,8 +3,8 @@ class GroupBuilderService
 
   attr_reader :week_number
 
-  def initialize
-    @week_number = Date.today.cweek
+  def initialize(week_number)
+    @week_number = week_number
   end
 
   def execute
@@ -18,8 +18,11 @@ class GroupBuilderService
       end
     end
 
+    true
   rescue => e
     Rails.logger.error(e)
+
+    false
   end
 
   private

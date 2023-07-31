@@ -21,5 +21,6 @@
 
 <% else %>
   <strong>No groups formed for week <%= @week_number %></strong>
-  
+
+  <%= link_to('Build groups for current week', build_groups_groups_path) %>
 <% end %>
