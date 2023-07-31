@@ -3,7 +3,9 @@
 This application is dockerized so you may want to use docker to launch it:
 
 * Steps:
-1. `docker-compose build` to build docker images
+
+Build docker images:
+1. `docker-compose build` 
 
 Run migrations and seed db:
 2. `docker-compose run web rake db:migrate`
@@ -12,4 +14,4 @@ Run migrations and seed db:
 Start services:
 4. `docker-compose up`
 
-All done, you could browse the app by this address: http://0.0.0.0:3000
+All done! You could browse the app by this address: http://0.0.0.0:3000

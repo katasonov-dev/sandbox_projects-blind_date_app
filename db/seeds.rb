@@ -1,5 +1,5 @@
 puts 'creating departments...'
-4.times.each { |_| Department.create(name: Faker::Commerce.department) }
+4.times.each { Department.create(name: Faker::Commerce.department) }
 department_ids = Department.ids
 
 puts 'adding employees...'
